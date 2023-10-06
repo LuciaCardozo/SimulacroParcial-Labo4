@@ -13,7 +13,7 @@ export class TablaActorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  actorSeleccionado(actor: any){
+  actorSeleccionado(actor: any) {
     this.actor.emit(actor);
   }
 

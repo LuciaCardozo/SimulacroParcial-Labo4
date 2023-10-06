@@ -13,7 +13,7 @@ export class ActorAltaComponent implements OnInit {
   imageToUpload:any;
   paises:any;
   loading: boolean = false;
-  asd:any;
+
   constructor(private fb: FormBuilder, private toast:ToastService, private database:ApiPeliculasService) { 
     this.form = this.fb.group({
       name: ["", Validators.required],
@@ -24,7 +24,6 @@ export class ActorAltaComponent implements OnInit {
       email: ["",Validators.email],
       address: ["", Validators.required],
       //addressTwo: "",
-
     });
   }
 
@@ -33,30 +32,24 @@ export class ActorAltaComponent implements OnInit {
     this.database.getPaises().subscribe({
       next: (res) => {
         this.loading = false;
-        console.log(res)
         this.paises = res;
         this.paises.sort((a:any,b:any)=> a.name.common>b.name.common)
       }, error: (err)=> {
         this.loading = false;
-        console.log(err)
       }
     })
-    console.log(this.paises)
   }
 
   altaActor() {
     this.loading = true;
     let datos = {...this.form.value, image:this.imageToUpload}
-    console.log(datos)
     if (this.form.status == "VALID") {
-      this.database.alta('actores',datos).then((res)=>{
+      this.database.alta('actores',datos).then( (res) => {
         this.toast.show("Alta exitoso!", { classname: 'bg-success', "delay": "2000" });
         this.loading = false;
         this.limpiarForm();
-        console.log("alta actor ok", res)
-      }).catch((err)=>{
+      }).catch( (err) => {
         this.loading = false;
-        console.log("alta actor error", err)  
       })
     } else {
       this.loading = false;
@@ -69,26 +62,26 @@ export class ActorAltaComponent implements OnInit {
     let archivoCapturado = event.target.files[0];
     reader.readAsDataURL(archivoCapturado);
     reader.onloadend = () => {
-      this.imageToUpload = reader.result
+      this.imageToUpload = reader.result;
     }
   }
 
   countrySeleccionado(dato:any){
-    this.form.get('paisSeleccionado')?.enable()
-    this.form.get('state')?.enable()
-    this.form.controls['paisSeleccionado'].setValue(dato.pais)
-    this.form.controls['state'].setValue(dato.state)
+    this.form.get('paisSeleccionado')?.enable();
+    this.form.get('state')?.enable();
+    this.form.controls['paisSeleccionado'].setValue(dato.pais);
+    this.form.controls['state'].setValue(dato.state);
   }
 
   limpiarForm() {
-    this.form.controls['name'].setValue('')
-    this.form.controls['lastname'].setValue('')
-    //this.form.controls['username'].setValue('')
-    this.form.controls['email'].setValue('')
-    this.form.controls['address'].setValue('')
-    //this.form.controls['addressTwo'].setValue('')
-    this.form.controls['paisSeleccionado'].setValue('')
-    this.form.controls['state'].setValue('')
+    this.form.controls['name'].setValue('');
+    this.form.controls['lastname'].setValue('');
+    //this.form.controls['username'].setValue('');
+    this.form.controls['email'].setValue('');
+    this.form.controls['address'].setValue('');
+    //this.form.controls['addressTwo'].setValue('');
+    this.form.controls['paisSeleccionado'].setValue('');
+    this.form.controls['state'].setValue('');
     this.imageToUpload = null;
   }
 

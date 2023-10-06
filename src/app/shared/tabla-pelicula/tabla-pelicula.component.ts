@@ -13,8 +13,8 @@ export class TablaPeliculaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  seHizoClick(pelicula:any, i:number){
-    let peliculaSeleccionada = {...pelicula, posicion:i}
+  seHizoClick(pelicula:any, i:number) {
+    let peliculaSeleccionada = {...pelicula, posicion: i};
     this.clickPeli.emit(peliculaSeleccionada);
   }
 

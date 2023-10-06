@@ -9,6 +9,7 @@ import { ToastService } from 'src/app/services/toast/toast.service';
 export class ToastComponent implements OnInit {
 
   constructor(public toastService: ToastService) {}
+  
   ngOnInit(){}
   
   isTemplate(toast:any) { return toast.textOrTpl instanceof TemplateRef; }

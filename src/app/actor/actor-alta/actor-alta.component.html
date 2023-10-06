@@ -3,7 +3,6 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- <input type="text" name="" id="" [(ngModel)]="asd">{{asd}} -->
     <div class="collapse navbar-collapse justify-content-between" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -78,7 +77,6 @@
          <app-tabla-paises [dato]='this.paises' (seHizoClick)='countrySeleccionado($event)'></app-tabla-paises>
 </form>
 </main>
-
 <div *ngIf="loading" style="width: 100vw; height: 100vh; display: flex; position: fixed;
   top: 0; left: 0; background-color: #198754ad; justify-content: center; align-items: center;">
   <div>

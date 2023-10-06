@@ -31,7 +31,6 @@ export class PeliculaAltaComponent implements OnInit {
     res?.subscribe({
       next: (res) => {
         this.listaActores = res.map((pelicula: any) => pelicula.payload.doc.data());
-        console.log(this.form.controls['nombreActor'])
       },
       error: (error) => {
         console.log(error);
@@ -39,9 +38,10 @@ export class PeliculaAltaComponent implements OnInit {
     });
   }
 
-  altaPelicula(){
+  altaPelicula() {
     this.loading = true;
-    let datos = {...this.form.value, img: this.imageToUpload}
+    let datos = {...this.form.value, img: this.imageToUpload};
+
     if (this.form.status == "VALID" && this.form.controls['nombreActor'].value != '' 
     && this.form.controls['apellidoActor'].value != '' && this.imageToUpload != undefined) {
       this.db.alta('peliculas',datos).then((res)=>{
@@ -62,13 +62,13 @@ export class PeliculaAltaComponent implements OnInit {
     }
   }
 
-  uploadImage(event:any) {
+  uploadImage(event: any) {
     let reader = new FileReader();
     let archivoCapturado = event.target.files[0];
     reader.readAsDataURL(archivoCapturado);
     reader.onloadend = () => {
-      this.imageToUpload = reader.result
-    }
+      this.imageToUpload = reader.result;
+    };
   }
 
   actorSeleccionado(actor: any) {
@@ -78,13 +78,13 @@ export class PeliculaAltaComponent implements OnInit {
   }
 
   limpiarForm() {
-    this.form.controls['nombreActor'].setValue('')
-    this.form.controls['apellidoActor'].setValue('')
-    this.form.controls['titulo'].setValue('')
-    this.form.controls['anio'].setValue('')
-    this.form.controls['descripcion'].setValue('')
-    this.form.controls['tipo'].setValue('')
-    this.form.controls['cantidadDePublico'].setValue('')
-    this.imageToUpload = null;
+    this.form.controls['nombreActor'].setValue('');
+    this.form.controls['apellidoActor'].setValue('');
+    this.form.controls['titulo'].setValue('');
+    this.form.controls['anio'].setValue('');
+    this.form.controls['descripcion'].setValue('');
+    this.form.controls['tipo'].setValue('');
+    this.form.controls['cantidadDePublico'].setValue('');
+    this.imageToUpload = undefined;
   }
 }

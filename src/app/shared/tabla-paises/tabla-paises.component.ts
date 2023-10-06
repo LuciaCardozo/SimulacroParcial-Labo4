@@ -14,7 +14,7 @@ export class TablaPaisesComponent implements OnInit {
   }
 
   countrySeleccionado(dato: any) {
-    this.seHizoClick.emit(dato)
+    this.seHizoClick.emit(dato);
   }
 
 }
