@@ -1,0 +1,76 @@
+ <!-- Custom styles for this template -->
+ <div>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
+    <a class="navbar-brand m-1" href="#">Movies UTN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/actor/alta']">Alta de actor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/pelicula/alta']">Alta de pelicula</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/actor/listado']">Listado de actores</a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0 d-flex">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" disabled>
+        <button class="btn btn-success my-2 my-sm-0" disabled>Search</button>
+    </form> -->
+  </div>
+  </nav>
+
+  <main role="main">
+    <!-- <app-pelicula-listado [datos]="listaPeliculas"></app-pelicula-listado> -->
+  <h3 class="text-center mt-5" style="font-family: cursive;">Lista de peliculas</h3>
+  <div>
+    <app-tabla-pelicula
+    [peliculas]="listaPeliculas"
+    (clickPeli)="cargarDatos($event)"></app-tabla-pelicula>
+  </div>
+  <div *ngIf="mostrarDatos"> -->
+    <!-- Example row of columns -->
+    <div class="row" style="background-color: #453e5191; width: 101vw; height: 100vh; display: flex; align-items: center;
+    justify-content: center; position: fixed; top: 0; left: 0; z-index: 999999;">
+    <div style="background-color: #86daacf8; width: 40%; border-radius: 10px; padding: 2rem;">
+      <div style="display: flex; justify-content: end; margin-top: -2rem; margin-right: -2rem;">
+        <button (click)="mostrarDatos = false" class="btn btn-danger m-2" style="border-radius: 50%;">✕</button>
+      </div>
+      <div class="text-center d-flex justify-content-center">
+        <div>
+            <h5 style="font-family: cursive; text-decoration: underline;">{{datos.titulo}}</h5>
+            <img class="imgPelicula" [src]="datos.img" alt="img-pelicula">
+            <div class="d-grid justify-content-center mt-3">
+              Tipo:<input class="text-center" value="{{datos.tipo}}" style="border-radius: 5px; border: none; padding: 5px; margin: 10px;">
+              Año de estreno: <input class="text-center" type="number" value="{{datos.anio}}" style="border-radius: 5px; border: none; padding: 5px; margin: 10px;">
+              Descripcion: <div style="height: 20vh; overflow-y: scroll; font-size: 14px;">
+               {{datos.descripcion}}
+              </div>
+            </div>
+
+        </div>
+      </div>
+      <div class="d-flex justify-content-center" style="margin-top: 1rem;">
+        <button class="btn btn-success m-2" (click)="editarPelicula()">Editar</button>
+        <label *ngIf="">No funciona aun</label>
+      </div>
+    </div>
+    </div>
+  </div> 
+  <!-- /container -->
+  <!-- <hr> -->
+  </main>
+ </div>
+
+ <div *ngIf="loading" style="width: 100vw; height: 100vh; display: flex; position: fixed;
+  top: 0; left: 0; background-color: #198754ad; justify-content: center; align-items: center;">
+  <div>
+    <img src="../../../assets/logoPng.png" alt="" width="80px" class="loading">
+  </div>
+</div>

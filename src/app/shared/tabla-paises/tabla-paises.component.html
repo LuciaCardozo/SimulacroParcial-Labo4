@@ -1,0 +1,21 @@
+<div style="margin-top: 3rem; margin-right: 10px;">
+    <div style="background-color: #198754ab; border-radius:10px; width: 100%; height: 70vh; padding: 12px; overflow-y: scroll">
+      
+      <table style="width: 100%;" *ngIf="dato">
+        <tr>
+          <th>Paises</th>
+          <th></th>
+        </tr>
+        <tbody *ngFor="let pais of dato;let i = index">
+          <tr (click)="countrySeleccionado({pais: pais.name.common, state:pais.subregion, posicion: i})">
+        <td>
+          {{pais.name.common}}
+        </td>
+        <td>
+          <img src="{{pais.flags.png}}" alt="{{pais.flags.alt}}" width="50px">
+        </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>

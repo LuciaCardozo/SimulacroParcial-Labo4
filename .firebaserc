@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "db-generico": {
+      "hosting": {
+        "simuladorPrimerParcial": [
+          "db-generico"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "db-generico"
+  }
+}

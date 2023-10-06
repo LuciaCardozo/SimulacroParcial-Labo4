@@ -1,0 +1,20 @@
+<div style="width: 100%; height: 70vh; padding: 12px; overflow-y: scroll">
+  <table *ngIf="listaActores" style="background-color: #198754ad; border-radius: 15px;">
+      <tr style="color: white;">
+        <th style="padding: 10px; text-decoration: underline;">Nombre</th>
+        <th style="padding: 10px; text-decoration: underline;">Apellido</th>
+        <th style="padding: 10px; text-decoration: underline;">Dirección</th>
+        <th style="padding: 10px; text-decoration: underline;">País</th>
+        <th style="padding: 10px; text-decoration: underline;">Foto</th>
+      </tr>
+      <tbody *ngFor="let actor of listaActores;let i = index" (click)="actorSeleccionado(actor)">
+          <tr style="color: rgb(233, 231, 231); cursor: pointer;">
+            <td style="padding: 10px;">{{actor.name | titlecase}}</td>
+            <td style="padding: 10px;">{{actor.lastname | titlecase}}</td>
+            <td style="padding: 10px;">{{actor.address | titlecase}}</td>
+            <td style="padding: 10px;">{{actor.paisSeleccionado | titlecase}}</td>
+            <td style="padding: 10px;"><img src="{{actor.image}}" alt="" width="60px"></td>
+          </tr>
+      </tbody>
+    </table>
+</div>

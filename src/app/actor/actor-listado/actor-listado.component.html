@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
+    <a class="navbar-brand m-1" href="#">Movies UTN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/busqueda']">Listado de peliculas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/pelicula/alta']">Alta de peliculas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/actor/alta']">Alta actor</a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0 d-flex">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>
+<main role="main">
+  <h2 class="text-center my-3">Listado de Actores</h2>
+  <div style="display: flex; justify-content: center;">
+    <table *ngIf="this.listaActores" style="background-color: #198754ad; border-radius: 15px;">
+        <tr style="color: white;">
+          <th style="padding: 10px; text-decoration: underline;">Nombre</th>
+          <th style="padding: 10px; text-decoration: underline;">Apellido</th>
+          <th style="padding: 10px; text-decoration: underline;">Dirección</th>
+          <th style="padding: 10px; text-decoration: underline;">País</th>
+          <th style="padding: 10px; text-decoration: underline;">Foto</th>
+        </tr>
+        <tbody *ngFor="let actor of this.listaActores;let i = index">
+            <tr style="color: rgb(233, 231, 231);">
+              <td style="padding: 10px;">{{actor.name | titlecase}}</td>
+              <td style="padding: 10px;">{{actor.lastname | titlecase}}</td>
+              <td style="padding: 10px;">{{actor.address | titlecase}}</td>
+              <td style="padding: 10px;">{{actor.paisSeleccionado | titlecase}}</td>
+              <td style="padding: 10px;"><img src="{{actor.image}}" alt="" width="60px"></td>
+            </tr>
+        </tbody>
+      </table>
+  </div>
+</main>

@@ -1,0 +1,41 @@
+.jumbotron{
+    display: flex;
+    justify-content: center;
+}
+
+.divContainer {
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px 0px #7daf08e5;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill,minmax(15rem,1fr));
+    grid-auto-rows: 21rem;
+    margin: 2rem 0;
+    max-height: 70vh;
+    overflow: scroll;
+    background-color: #3bb170b6;
+}
+
+.divContainer::-webkit-scrollbar {
+    display: none;
+}
+.card {
+    border-radius: 5px 25px 5px 25px;
+    background-color: #e44e1357;
+    width: 90%;
+    margin: 1rem;
+    max-width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.lblAnio{
+    color: black;
+    margin-top: 1rem;
+}
+
+.imgPelicula{
+    width: 120px;
+    border-radius: 10px;
+}

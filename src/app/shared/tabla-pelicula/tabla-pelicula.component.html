@@ -1,0 +1,11 @@
+<div class="jumbotron">
+  <div class="divContainer">
+    <div style="cursor: pointer;" class="card d-flex justify-content-center align-items-center" (click)="seHizoClick(pelicula,i)" *ngFor="let pelicula of peliculas;let i = index">
+      <div>
+          <h5 style="font-family: cursive; font-size: 16px;">{{pelicula.titulo | titlecase}}</h5>
+          <img class="imgPelicula" [src]="pelicula.img" alt="img-pelicula"><br>
+          <label class="lblAnio">{{pelicula.anio}}</label><br>
+      </div>
+  </div>
+  </div>
+</div>
